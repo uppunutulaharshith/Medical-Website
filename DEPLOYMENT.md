@@ -102,9 +102,9 @@ The static website consists of `index.html`, `style.css`, and `app.js` in the ro
 Before or after deploying the static website, make sure to update the `API_URL` variable at the top of your root [app.js](file:///c:/Users/HARSHITH/Downloads/medical/app.js) file:
 
 ```javascript
-// Change 'https://medical-website-backend.onrender.com/api' to your actual deployed Render API url
+// Already pre-configured for your live Render API url
 const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:5003/api'
-    : 'https://medical-website-backend.onrender.com/api'; 
+    : 'https://medical-website-fefj.onrender.com/api'; 
 ```
 Once updated, push the change to GitHub to trigger automatic redeployment!

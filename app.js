@@ -46,7 +46,7 @@ const PRODUCTS = [
 // Set this to your deployed backend API URL (e.g., 'https://medical-website-backend.onrender.com/api') in production
 const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
     ? 'http://localhost:5003/api'
-    : 'https://medical-website-backend.onrender.com/api'; // Replace with your production API URL
+    : 'https://medical-website-fefj.onrender.com/api'; // Replace with your production API URL
 
 // --- APP STATE ---
 let cart = [];
