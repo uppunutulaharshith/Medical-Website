@@ -9,11 +9,12 @@ const Admin = () => {
   const navigate = useNavigate();
 
   // Tab State
-  const [activeTab, setActiveTab] = useState('products'); // 'products' | 'orders'
+  const [activeTab, setActiveTab] = useState('products'); // 'products' | 'orders' | 'prescriptions'
 
   // Data States
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [prescriptions, setPrescriptions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // Modal States for Product Add/Edit
@@ -53,6 +54,11 @@ const Admin = () => {
       const resOrd = await fetch(`${API_URL}/orders`, { headers });
       const dataOrd = await resOrd.json();
       if (dataOrd.success) setOrders(dataOrd.orders);
+
+      // Fetch prescriptions
+      const resPres = await fetch(`${API_URL}/prescriptions`, { headers });
+      const dataPres = await resPres.json();
+      if (dataPres.success) setPrescriptions(dataPres.prescriptions);
 
     } catch (err) {
       console.error(err);
@@ -191,6 +197,29 @@ const Admin = () => {
     }
   };
 
+  // Delete Prescription
+  const handleDeletePrescription = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this prescription from the database?')) return;
+
+    try {
+      const res = await fetch(`${API_URL}/prescriptions/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast(data.message, 'success');
+        setLoading(true);
+        fetchData();
+      } else {
+        showToast(data.message || 'Failed to delete prescription.', 'error');
+      }
+    } catch (err) {
+      console.error(err);
+      showToast('Server offline while deleting prescription.', 'error');
+    }
+  };
+
 
 
   // Show loading/redirect if not logged in
@@ -220,6 +249,12 @@ const Admin = () => {
               onClick={() => setActiveTab('orders')}
             >
               Customer Orders ({orders.length})
+            </button>
+            <button 
+              className={`admin-tab-btn ${activeTab === 'prescriptions' ? 'active' : ''}`}
+              onClick={() => setActiveTab('prescriptions')}
+            >
+              Prescriptions ({prescriptions.length})
             </button>
           </div>
 
@@ -355,7 +390,81 @@ const Admin = () => {
                   </div>
                 )}
 
+                {/* 3. PRESCRIPTIONS PANEL */}
+                {activeTab === 'prescriptions' && (
+                  <div>
+                    <h3 style={{ fontWeight: 700, marginBottom: '20px' }}>Uploaded Prescriptions Directory</h3>
 
+                    {prescriptions.length === 0 ? (
+                      <p style={{ color: 'var(--text-muted)', textAlign: 'center', padding: '40px' }}>No prescriptions registered in the system database yet.</p>
+                    ) : (
+                      <div className="admin-table-wrapper">
+                        <table className="admin-table">
+                          <thead>
+                            <tr>
+                              <th>Rx ID</th>
+                              <th>Date</th>
+                              <th>Patient Name</th>
+                              <th>Contact Phone</th>
+                              <th>Service Option</th>
+                              <th>Notes / Special Instructions</th>
+                              <th>Prescription File</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {prescriptions.map(pres => (
+                              <tr key={pres.id}>
+                                <td>LN-RX{pres.id}</td>
+                                <td>{new Date(pres.createdAt).toLocaleDateString()}</td>
+                                <td style={{ fontWeight: 600 }}>{pres.name}</td>
+                                <td>{pres.phone}</td>
+                                <td>
+                                  <div style={{ textTransform: 'capitalize', fontWeight: 600 }}>
+                                    {pres.deliveryOption === 'home' ? 'Home Delivery' : 'Store Pickup'}
+                                  </div>
+                                  {pres.deliveryOption === 'home' && (
+                                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', maxWidth: '180px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={pres.address}>
+                                      {pres.address}
+                                    </div>
+                                  )}
+                                </td>
+                                <td>
+                                  <div style={{ fontSize: '0.85rem', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={pres.notes || 'No instructions'}>
+                                    {pres.notes || <span style={{ fontStyle: 'italic', color: 'var(--text-muted)' }}>None</span>}
+                                  </div>
+                                </td>
+                                <td>
+                                  {pres.file ? (
+                                    <a 
+                                      href={`${API_URL.replace('/api', '')}${pres.file.url}`} 
+                                      target="_blank" 
+                                      rel="noreferrer" 
+                                      style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline' }}
+                                    >
+                                      View File ({pres.file.originalname.split('.').pop().toUpperCase()})
+                                    </a>
+                                  ) : (
+                                    <span style={{ color: 'var(--text-muted)' }}>No File</span>
+                                  )}
+                                </td>
+                                <td>
+                                  <button 
+                                    className="admin-action-btn admin-action-delete" 
+                                    onClick={() => handleDeletePrescription(pres.id)}
+                                    title="Delete Prescription"
+                                  >
+                                    <Trash2 size={14} />
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
+                )}
               </>
             )}
           </div>

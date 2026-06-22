@@ -15,7 +15,31 @@ const PRODUCTS = [
     { id: 13, name: "Gentle Facial Cleanser", category: "personal-care", type: "OTC", price: 280, desc: "pH-balanced, soap-free cleanser." },
     { id: 14, name: "Medicated Anti-Dandruff Shampoo", category: "personal-care", type: "OTC", price: 220, desc: "Relief from dandruff and itching." },
     { id: 15, name: "Hypoallergenic Baby Wipes", category: "baby-care", type: "OTC", price: 120, desc: "Fragrance-free wipes with Aloe & Vitamin E." },
-    { id: 16, name: "Gentle Baby Moisturizing Lotion", category: "baby-care", type: "OTC", price: 195, desc: "Nourishing formula for baby's skin." }
+    { id: 16, name: "Gentle Baby Moisturizing Lotion", category: "baby-care", type: "OTC", price: 195, desc: "Nourishing formula for baby's skin." },
+    { id: 17, name: "Vitamin C 500mg", category: "wellness", type: "OTC", price: 75, desc: "Vitamins and immunity booster." },
+    { id: 18, name: "Pantoprazole 40mg", category: "medicines", type: "Rx", price: 110, desc: "Proton pump inhibitor that decreases the amount of acid produced in the stomach." },
+    { id: 19, name: "Azithromycin 500mg", category: "medicines", type: "Rx", price: 140, desc: "Macrolide antibiotic used for treating various bacterial infections." },
+    { id: 20, name: "Montelukast & Levocetirizine", category: "medicines", type: "Rx", price: 165, desc: "Combination medicine used to prevent asthma symptoms and treat allergic rhinitis." },
+    { id: 21, name: "Telmisartan 40mg", category: "medicines", type: "Rx", price: 95, desc: "Angiotensin II receptor antagonist used for the treatment of hypertension." },
+    { id: 22, name: "Loratadine 10mg", category: "medicines", type: "OTC", price: 55, desc: "Non-drowsy 24-hour allergy relief tablets for sneezing, runny nose, and itchy eyes." },
+    { id: 23, name: "Ranitidine 150mg", category: "medicines", type: "OTC", price: 40, desc: "H2 blocker that reduces stomach acid to treat and prevent heartburn and acid indigestion." },
+    { id: 24, name: "Diclofenac Gel 1%", category: "medicines", type: "OTC", price: 85, desc: "Topical pain relief gel for joint pain, backache, neck pain, and muscle sprains." },
+    { id: 25, name: "Antiseptic Liquid (500ml)", category: "medicines", type: "OTC", price: 220, desc: "Trusted antiseptic liquid sanitizes wounds and disinfects household surfaces." },
+    { id: 26, name: "Ashwagandha Capsules", category: "wellness", type: "OTC", price: 180, desc: "Natural stress relief and energy booster supplement made from pure herb extract." },
+    { id: 27, name: "Omega-3 Fish Oil 1000mg", category: "wellness", type: "OTC", price: 599, desc: "Rich source of EPA and DHA to support heart, joint, brain, and eye health." },
+    { id: 28, name: "Daily Probiotics 30 Billion", category: "wellness", type: "OTC", price: 480, desc: "Premium gut health supplement with multiple active probiotic strains." },
+    { id: 29, name: "Glucosamine Chondroitin Joint Support", category: "wellness", type: "OTC", price: 650, desc: "Nutritional supplement supporting joint structure, mobility, and flexibility." },
+    { id: 30, name: "Herbal Green Tea (25 bags)", category: "wellness", type: "OTC", price: 160, desc: "Antioxidant-rich organic green tea with Tulsi for metabolism and detox." },
+    { id: 31, name: "Eucalyptus Cough Drops (Menthol)", category: "wellness", type: "OTC", price: 45, desc: "Fast-acting throat lozenges that soothe sore throats and clear nasal congestion." },
+    { id: 32, name: "Coconut Hair Oil (300ml)", category: "personal-care", type: "OTC", price: 135, desc: "100% pure coconut oil for deep hair nourishment and natural shine." },
+    { id: 33, name: "Moisturizing Cream (100g)", category: "personal-care", type: "OTC", price: 190, desc: "Lightweight, non-greasy moisturizing cream enriched with Jojoba oil & Vitamin E." },
+    { id: 34, name: "Sunscreen Lotion SPF 50", category: "personal-care", type: "OTC", price: 450, desc: "Ultra-sheer dry-touch sunscreen providing broad-spectrum UVA/UVB protection." },
+    { id: 35, name: "Antiseptic Neem Face Wash", category: "personal-care", type: "OTC", price: 150, desc: "Soap-free herbal face wash that prevents pimples and purifies facial skin." },
+    { id: 36, name: "Medicated Toothpaste (Sensitive)", category: "personal-care", type: "OTC", price: 160, desc: "Toothpaste for fast relief and long-lasting protection from tooth sensitivity." },
+    { id: 37, name: "Charcoal Peel-Off Mask (100g)", category: "personal-care", type: "OTC", price: 240, desc: "Deep cleansing peel-off mask that removes blackheads, dirt, and excess oil." },
+    { id: 38, name: "Gentle Baby Shampoo (200ml)", category: "baby-care", type: "OTC", price: 175, desc: "No-tears formula baby shampoo enriched with Hibiscus and Chickpea extracts." },
+    { id: 39, name: "Baby Diaper Rash Cream", category: "baby-care", type: "OTC", price: 320, desc: "Soothing rash cream with micronized titanium dioxide and pH 5.5 to protect delicate skin." },
+    { id: 40, name: "Talc-Free Baby Powder (200g)", category: "baby-care", type: "OTC", price: 180, desc: "Cornstarch-based gentle baby powder that absorbs excess moisture and keeps skin fresh." }
 ];
 
 // --- APP STATE ---
@@ -140,6 +164,46 @@ function setupCart() {
 
     $("checkout-btn")?.addEventListener("click", () => {
         if (!cart.length) return;
+
+        // Save order details to the backend database
+        const orderBody = {
+            items: cart.map(it => {
+                const prod = PRODUCTS.find(p => p.id === it.id);
+                return {
+                    productId: it.id,
+                    name: it.name,
+                    brand: prod ? prod.brand || 'Generic' : 'Generic',
+                    type: prod ? prod.type || 'OTC' : 'OTC',
+                    qty: it.qty,
+                    price: it.price
+                };
+            }),
+            total: cart.reduce((s, c) => s + c.price * c.qty, 0),
+            addressDetails: {
+                name: "WhatsApp Guest Customer",
+                phone: "919000000000",
+                address: "Ordered via Static Website",
+                city: "Hyderabad",
+                zip: "500001"
+            },
+            paymentDetails: {
+                method: "COD",
+                status: "Pending",
+                transactionId: ""
+            }
+        };
+
+        fetch('http://localhost:5003/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderBody)
+        }).then(res => res.json())
+        .then(data => {
+            console.log("Order saved to backend database:", data);
+        }).catch(err => {
+            console.error("Failed to save order to backend database:", err);
+        });
+
         let msg = "*Laxmi Narsima Medical & General Store*\n*New Order Inquiry:*\n\n" +
             cart.map((it, idx) => {
                 const prod = PRODUCTS.find(p => p.id === it.id);
@@ -265,6 +329,25 @@ function setupPrescriptionForm() {
         if (!uploadedFile) return alert("Please upload an image or PDF copy of your prescription first.");
         const val = id => document.getElementById(id).value;
         const delType = document.querySelector("input[name='delivery-type']:checked").value;
+
+        // Save prescription details and file to the backend database
+        const formData = new FormData();
+        formData.append('name', val("rx-name"));
+        formData.append('phone', val("rx-phone"));
+        formData.append('deliveryOption', delType);
+        formData.append('address', delType === "home" ? val("rx-address") : "");
+        formData.append('notes', val("rx-notes") || "");
+        formData.append('prescriptionCopy', uploadedFile);
+
+        fetch('http://localhost:5003/api/prescriptions', {
+            method: 'POST',
+            body: formData
+        }).then(res => res.json())
+        .then(data => {
+            console.log("Prescription saved to backend:", data);
+        }).catch(err => {
+            console.error("Failed to save prescription to backend:", err);
+        });
         
         let msg = `*Laxmi Narsima Medical & General Store*\n*Prescription Upload Request:*\n\n` +
             `*Customer:* ${val("rx-name")}\n*Contact Phone:* ${val("rx-phone")}\n*Service Option:* ${delType === "home" ? "Home Delivery" : "Store Pickup"}\n`;
@@ -333,6 +416,20 @@ function setupContactForm() {
         const phone = document.getElementById("contact-phone")?.value || "";
         const subject = document.getElementById("contact-subject")?.value || "General Query";
         const message = document.getElementById("contact-message")?.value || "";
+
+        // Save contact request to backend database
+        const contactBody = { name, email, phone, subject, message };
+
+        fetch('http://localhost:5003/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(contactBody)
+        }).then(res => res.json())
+        .then(data => {
+            console.log("Contact query saved to backend:", data);
+        }).catch(err => {
+            console.error("Failed to save contact query to backend:", err);
+        });
 
         // Construct email body and redirect via mailto
         const emailBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\nMessage:\n${message}`;

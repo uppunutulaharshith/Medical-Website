@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
-import { Sun, Moon, ShoppingCart, Menu, X, LogOut, User, LayoutDashboard, Plus, Minus, Trash2 } from 'lucide-react';
+import { Sun, Moon, ShoppingCart, Menu, X, LogOut, User, LayoutDashboard, Plus, Minus, Trash2, ShoppingBag } from 'lucide-react';
 
 const Navbar = () => {
   const { 
@@ -58,6 +58,9 @@ const Navbar = () => {
                 <NavLink to="/shop" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Browse Catalog</NavLink>
               </li>
               <li>
+                <NavLink to="/prescription" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Upload Rx</NavLink>
+              </li>
+              <li>
                 <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>Contact Us</NavLink>
               </li>
               {user && user.role === 'admin' && (
@@ -65,6 +68,15 @@ const Navbar = () => {
                   <NavLink to="/admin" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <LayoutDashboard size={16} /> Admin
+                    </span>
+                  </NavLink>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <NavLink to="/my-orders" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={() => setMobileMenuOpen(false)}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <ShoppingBag size={16} /> My Orders
                     </span>
                   </NavLink>
                 </li>

@@ -615,6 +615,29 @@ img {
 .filter-sidebar {
   position: sticky;
   top: 100px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding-right: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
+}
+
+.filter-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filter-sidebar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 3px;
+}
+
+.filter-sidebar::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+.filter-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 .filter-section {
@@ -1939,6 +1962,9 @@ img {
   .filter-sidebar {
     position: static;
     margin-bottom: 30px;
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
   }
   .details-grid {
     grid-template-columns: 1fr;

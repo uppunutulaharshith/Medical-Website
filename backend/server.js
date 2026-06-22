@@ -11,6 +11,8 @@ import authRoutes from './routes/auth.js';
 import productRoutes from './routes/products.js';
 import orderRoutes from './routes/orders.js';
 import contactRoutes from './routes/contact.js';
+import prescriptionRoutes from './routes/prescriptions.js';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -21,6 +23,11 @@ const PORT = parseInt(process.env.PORT || '5000', 10);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const UPLOAD_DIR = path.join(__dirname, 'uploads');
+
+// Ensure upload directory exists
+if (!fs.existsSync(UPLOAD_DIR)) {
+  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+}
 
 // Initialize Database
 db.init();
@@ -38,6 +45,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/prescriptions', prescriptionRoutes);
 
 // Base Route
 app.get('/', (req, res) => {

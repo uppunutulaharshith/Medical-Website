@@ -13,6 +13,8 @@ import Checkout from './pages/Checkout';
 import Auth from './pages/Auth';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
+import MyOrders from './pages/MyOrders';
+import Prescription from './pages/Prescription';
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
               <Route path="/auth" element={<Auth />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/my-orders" element={<MyOrders />} />
+              <Route path="/prescription" element={<Prescription />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>

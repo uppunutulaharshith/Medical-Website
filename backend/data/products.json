@@ -167,7 +167,236 @@
     "price": 75,
     "brand": "Abbott",
     "desc": "Vitamins and immunity booster",
-    "image": "https://www.shutterstock.com/shutterstock/photos/2763622271/display_1500/stock-photo-prosper-texas-usa-march-th-kirkland-signature-chewable-vitamin-c-mg-tangy-orange-2763622271.jpg",
-    "createdAt": "2026-06-08T05:53:42.205Z"
+    "image": "https://www.shutterstock.com/shutterstock/photos/2763622271/display_1500/stock-photo-prosper-texas-usa-march-th-kirkland-signature-chewable-vitamin-c-mg-tangy-orange-2763622271.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Pantoprazole 40mg",
+    "category": "medicines",
+    "type": "Rx",
+    "price": 110,
+    "brand": "Pan-D",
+    "desc": "Proton pump inhibitor that decreases the amount of acid produced in the stomach.",
+    "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 19,
+    "name": "Azithromycin 500mg",
+    "category": "medicines",
+    "type": "Rx",
+    "price": 140,
+    "brand": "Azithral",
+    "desc": "Macrolide antibiotic used for treating various bacterial infections.",
+    "image": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 20,
+    "name": "Montelukast & Levocetirizine",
+    "category": "medicines",
+    "type": "Rx",
+    "price": 165,
+    "brand": "Monticope",
+    "desc": "Combination medicine used to prevent asthma symptoms and treat allergic rhinitis.",
+    "image": "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 21,
+    "name": "Telmisartan 40mg",
+    "category": "medicines",
+    "type": "Rx",
+    "price": 95,
+    "brand": "Telma",
+    "desc": "Angiotensin II receptor antagonist used for the treatment of hypertension.",
+    "image": "https://images.unsplash.com/photo-1628771065518-0d82f15e8e48?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 22,
+    "name": "Loratadine 10mg",
+    "category": "medicines",
+    "type": "OTC",
+    "price": 55,
+    "brand": "Claritin",
+    "desc": "Non-drowsy 24-hour allergy relief tablets for sneezing, runny nose, and itchy eyes.",
+    "image": "https://images.unsplash.com/photo-1550572017-edd951b55104?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 23,
+    "name": "Ranitidine 150mg",
+    "category": "medicines",
+    "type": "OTC",
+    "price": 40,
+    "brand": "Zantac",
+    "desc": "H2 blocker that reduces stomach acid to treat and prevent heartburn and acid indigestion.",
+    "image": "https://images.unsplash.com/photo-1607619056574-7b8d304f3b24?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 24,
+    "name": "Diclofenac Gel 1%",
+    "category": "medicines",
+    "type": "OTC",
+    "price": 85,
+    "brand": "Volini",
+    "desc": "Topical pain relief gel for joint pain, backache, neck pain, and muscle sprains.",
+    "image": "https://images.unsplash.com/photo-1587854692152-cbe660dbbab9?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 25,
+    "name": "Antiseptic Liquid (500ml)",
+    "category": "medicines",
+    "type": "OTC",
+    "price": 220,
+    "brand": "Dettol",
+    "desc": "Trusted antiseptic liquid sanitizes wounds and disinfects household surfaces.",
+    "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 26,
+    "name": "Ashwagandha Capsules",
+    "category": "wellness",
+    "type": "OTC",
+    "price": 180,
+    "brand": "Himalaya",
+    "desc": "Natural stress relief and energy booster supplement made from pure herb extract.",
+    "image": "https://cdn01.pharmeasy.in/dam/products_otc/A47905/multivite-gold-essential-vitamins-minerals-tabgels-for-adults-15-nos-6.1-1777125603.jpg?dim=700x0&dpr=1&q=100"
+  },
+  {
+    "id": 27,
+    "name": "Omega-3 Fish Oil 1000mg",
+    "category": "wellness",
+    "type": "OTC",
+    "price": 599,
+    "brand": "WOW Life Science",
+    "desc": "Rich source of EPA and DHA to support heart, joint, brain, and eye health.",
+    "image": "https://media.gettyimages.com/id/539670531/photo/studio-shot-of-various-pills-in-bottles.jpg?s=612x612&w=0&k=20&c=Dvr4FJXQT2W3-5_aGdqwmPCYanUpO6UddPzh0m83zBM="
+  },
+  {
+    "id": 28,
+    "name": "Daily Probiotics 30 Billion",
+    "category": "wellness",
+    "type": "OTC",
+    "price": 480,
+    "brand": "HealthKart",
+    "desc": "Premium gut health supplement with multiple active probiotic strains.",
+    "image": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 29,
+    "name": "Glucosamine Chondroitin Joint Support",
+    "category": "wellness",
+    "type": "OTC",
+    "price": 650,
+    "brand": "Carbamide Forte",
+    "desc": "Nutritional supplement supporting joint structure, mobility, and flexibility.",
+    "image": "https://images.unsplash.com/photo-1527813783279-51158be04a4c?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 30,
+    "name": "Herbal Green Tea (25 bags)",
+    "category": "wellness",
+    "type": "OTC",
+    "price": 160,
+    "brand": "Organic India",
+    "desc": "Antioxidant-rich organic green tea with Tulsi for metabolism and detox.",
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 31,
+    "name": "Eucalyptus Cough Drops (Menthol)",
+    "category": "wellness",
+    "type": "OTC",
+    "price": 45,
+    "brand": "Vicks",
+    "desc": "Fast-acting throat lozenges that soothe sore throats and clear nasal congestion.",
+    "image": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 32,
+    "name": "Coconut Hair Oil (300ml)",
+    "category": "personal-care",
+    "type": "OTC",
+    "price": 135,
+    "brand": "Parachute",
+    "desc": "100% pure coconut oil for deep hair nourishment and natural shine.",
+    "image": "https://m.media-amazon.com/images/I/61La2wJE93L._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Moisturizing Cream (100g)",
+    "category": "personal-care",
+    "type": "OTC",
+    "price": 190,
+    "brand": "Nivea Soft",
+    "desc": "Lightweight, non-greasy moisturizing cream enriched with Jojoba oil & Vitamin E.",
+    "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQlooS51SS2zudUTxg377Cz9_yPhcvQyjrKl9hk8JUup3pOldKp9aFSlTUro7gJGuStKiK0z2rcAIoIXwq5vcLONdAm-5X_VxiL1s7BMZ7qP1tMoSJsL_vWCQ"
+  },
+  {
+    "id": 34,
+    "name": "Sunscreen Lotion SPF 50",
+    "category": "personal-care",
+    "type": "OTC",
+    "price": 450,
+    "brand": "Neutrogena",
+    "desc": "Ultra-sheer dry-touch sunscreen providing broad-spectrum UVA/UVB protection.",
+    "image": "https://www.shutterstock.com/shutterstock/photos/2763622271/display_1500/stock-photo-prosper-texas-usa-march-th-kirkland-signature-chewable-vitamin-c-mg-tangy-orange-2763622271.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Antiseptic Neem Face Wash",
+    "category": "personal-care",
+    "type": "OTC",
+    "price": 150,
+    "brand": "Himalaya Purifying",
+    "desc": "Soap-free herbal face wash that prevents pimples and purifies facial skin.",
+    "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 36,
+    "name": "Medicated Toothpaste (Sensitive)",
+    "category": "personal-care",
+    "type": "OTC",
+    "price": 160,
+    "brand": "Sensodyne Rapid Relief",
+    "desc": "Toothpaste for fast relief and long-lasting protection from tooth sensitivity.",
+    "image": "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 37,
+    "name": "Charcoal Peel-Off Mask (100g)",
+    "category": "personal-care",
+    "type": "OTC",
+    "price": 240,
+    "brand": "Bombay Shaving Co",
+    "desc": "Deep cleansing peel-off mask that removes blackheads, dirt, and excess oil.",
+    "image": "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 38,
+    "name": "Gentle Baby Shampoo (200ml)",
+    "category": "baby-care",
+    "type": "OTC",
+    "price": 175,
+    "brand": "Himalaya Baby",
+    "desc": "No-tears formula baby shampoo enriched with Hibiscus and Chickpea extracts.",
+    "image": "https://images.unsplash.com/photo-1628771065518-0d82f15e8e48?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 39,
+    "name": "Baby Diaper Rash Cream",
+    "category": "baby-care",
+    "type": "OTC",
+    "price": 320,
+    "brand": "Sebamed",
+    "desc": "Soothing rash cream with micronized titanium dioxide and pH 5.5 to protect delicate skin.",
+    "image": "https://images.unsplash.com/photo-1550572017-edd951b55104?w=500&auto=format&fit=crop&q=80"
+  },
+  {
+    "id": 40,
+    "name": "Talc-Free Baby Powder (200g)",
+    "category": "baby-care",
+    "type": "OTC",
+    "price": 180,
+    "brand": "Johnson's Blossoms",
+    "desc": "Cornstarch-based gentle baby powder that absorbs excess moisture and keeps skin fresh.",
+    "image": "https://images.unsplash.com/photo-1607619056574-7b8d304f3b24?w=500&auto=format&fit=crop&q=80"
   }
 ]

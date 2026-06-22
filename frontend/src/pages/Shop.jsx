@@ -13,6 +13,34 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Dynamic Sidebar Height calculation to prevent clipping in all scroll positions
+  const [sidebarMaxHeight, setSidebarMaxHeight] = useState('none');
+  const catalogLayoutRef = useRef(null);
+
+  useEffect(() => {
+    const updateSidebarHeight = () => {
+      if (window.innerWidth <= 1024) {
+        setSidebarMaxHeight('none');
+        return;
+      }
+      if (!catalogLayoutRef.current) return;
+      const rect = catalogLayoutRef.current.getBoundingClientRect();
+      const top = Math.max(100, rect.top);
+      // Height fits inside the viewport (viewport height - current top relative to viewport - bottom padding/margin)
+      const calculatedHeight = window.innerHeight - top - 40;
+      setSidebarMaxHeight(`${Math.max(250, calculatedHeight)}px`);
+    };
+
+    window.addEventListener('scroll', updateSidebarHeight, { passive: true });
+    window.addEventListener('resize', updateSidebarHeight);
+    updateSidebarHeight();
+
+    return () => {
+      window.removeEventListener('scroll', updateSidebarHeight);
+      window.removeEventListener('resize', updateSidebarHeight);
+    };
+  }, []);
+
   // Filter States
   const selectedCategory = searchParams.get('category') || 'all';
   const [selectedType, setSelectedType] = useState('all'); // 'all' | 'Rx' | 'OTC'
@@ -106,9 +134,9 @@ const Shop = () => {
           <p>Browse through high-quality healthcare formulations, OTC medicines, wellness vitamins, and daily essentials.</p>
         </div>
 
-        <div className="catalog-layout">
+        <div className="catalog-layout" ref={catalogLayoutRef}>
           {/* --- SIDEBAR FILTERS --- */}
-          <aside className="glass-card filter-sidebar" style={{ textAlign: 'left' }}>
+          <aside className="glass-card filter-sidebar" style={{ textAlign: 'left', maxHeight: sidebarMaxHeight }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid var(--border)', paddingBottom: '12px' }}>
               <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1.2rem', fontWeight: 700 }}>
                 <SlidersHorizontal size={18} /> Filters
