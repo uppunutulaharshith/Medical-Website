@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -19,7 +19,7 @@ import Prescription from './pages/Prescription';
 function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <HashRouter>
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
           <Navbar />
           <main style={{ flexGrow: 1 }}>
@@ -40,7 +40,7 @@ function App() {
           <Footer />
           <ToastContainer />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </AppProvider>
   );
 }
