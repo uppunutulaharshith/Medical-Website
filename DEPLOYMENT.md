@@ -8,7 +8,7 @@ This guide walks you through deploying the Express backend, the React frontend, 
 
 We have committed all your local changes (including dynamic production API configurations, database connections, catalog expansion to 40 items, and scrolling filters sidebar). 
 
-To push the code to your repository [Medical-Website-harshith](https://github.com/uppunutulaharshith/Medical-Website-harshith), open a terminal in your project root and run:
+To push the code to your repository [Medical-Website](https://github.com/uppunutulaharshith/Medical-Website), open a terminal in your project root and run:
 
 ```bash
 git push -u origin main
@@ -27,7 +27,7 @@ The Express backend handles the API routes, saves orders/contacts/prescriptions 
 ### Option A: One-Click Deploy (Recommended)
 Click the button below to instantly configure and deploy your backend server using the repository's Blueprint:
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/uppunutulaharshith/Medical-Website-harshith)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/uppunutulaharshith/Medical-Website)
 
 ---
 
@@ -36,7 +36,7 @@ If you prefer to configure the service manually:
 
 1. Go to [Render](https://render.com/) and log in.
 2. Click **New +** and select **Web Service**.
-3. Connect your GitHub repository `uppunutulaharshith/Medical-Website-harshith`.
+3. Connect your GitHub repository `uppunutulaharshith/Medical-Website`.
 4. Configure the Web Service with the following details:
    - **Name**: `medical-website-backend`
    - **Environment**: `Node`
@@ -63,7 +63,7 @@ The React frontend handles the catalog browsing, ordering checkout, prescription
 
 1. Go to [Vercel](https://vercel.com/) and log in.
 2. Click **Add New** > **Project**.
-3. Import your GitHub repository `uppunutulaharshith/Medical-Website-harshith`.
+3. Import your GitHub repository `uppunutulaharshith/Medical-Website`.
 4. Configure the Project settings:
    - **Framework Preset**: `Vite`
    - **Root Directory**: `frontend`
@@ -83,7 +83,7 @@ The static website consists of `index.html`, `style.css`, and `app.js` in the ro
 
 ### Option A: Deploy to Vercel (Recommended)
 1. In Vercel, click **Add New** > **Project**.
-2. Import the `uppunutulaharshith/Medical-Website-harshith` repository again.
+2. Import the `uppunutulaharshith/Medical-Website` repository again.
 3. Configure the settings:
    - **Framework Preset**: `Other` (or No Build)
    - **Root Directory**: Leave blank (project root)
