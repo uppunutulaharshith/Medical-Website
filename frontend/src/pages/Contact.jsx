@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { API_URL } from '../config';
-import { MapPin, Clock, Phone, Share2, Facebook, Twitter, Instagram, Send, Map } from 'lucide-react';
+import { MapPin, Clock, Phone, Share2, Facebook, Twitter, Instagram, Github, Send, Map } from 'lucide-react';
 
 const Contact = () => {
   const { showToast } = useApp();
@@ -125,8 +125,8 @@ const Contact = () => {
               <div className="contact-text">
                 <h4>Call Pharmacy Counter</h4>
                 <p>
-                  <a href="tel:+919000000000" style={{ color: 'var(--primary)', fontWeight: 700 }}>
-                    +91 90000 00000
+                  <a href="tel:+917569796263" style={{ color: 'var(--primary)', fontWeight: 700 }}>
+                    +91 75697 96263
                   </a> (Guidance & Enquiries)
                 </p>
               </div>
@@ -142,6 +142,7 @@ const Contact = () => {
                   <a href="#" className="social-btn" aria-label="Facebook"><Facebook size={16} /></a>
                   <a href="#" className="social-btn" aria-label="Twitter"><Twitter size={16} /></a>
                   <a href="#" className="social-btn" aria-label="Instagram"><Instagram size={16} /></a>
+                  <a href="https://github.com/uppunutulaharshith/Medical-Website" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="GitHub"><Github size={16} /></a>
                 </div>
               </div>
             </div>

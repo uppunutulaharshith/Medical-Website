@@ -136,7 +136,7 @@ const Prescription = () => {
     msg += `\n*Uploaded Attachment:* [Ref: ${successRecord.file.originalname}]\n`;
     msg += `_Note: Please attach your prescription file copy in this WhatsApp chat immediately for our pharmacists to double check._`;
 
-    const waUrl = `https://wa.me/919000000000?text=${encodeURIComponent(msg)}`;
+    const waUrl = `https://wa.me/917569796263?text=${encodeURIComponent(msg)}`;
     window.open(waUrl, '_blank');
   };
 

@@ -207,7 +207,7 @@ function setupCart() {
             total: cart.reduce((s, c) => s + c.price * c.qty, 0),
             addressDetails: {
                 name: "WhatsApp Guest Customer",
-                phone: "919000000000",
+                phone: "917569796263",
                 address: "Ordered via Static Website",
                 city: "Hyderabad",
                 zip: "500001"
@@ -237,7 +237,7 @@ function setupCart() {
             }).join('\n') +
             `\n\n*Total Estimate: ₹${cart.reduce((s, c) => s + c.price * c.qty, 0).toFixed(2)}*\n*Store UPI ID for Payment:* 7569796263-k352@axl\n\n_Note: Please upload any required prescriptions if you have Rx items in your list._`;
 
-        window.open(`https://wa.me/919000000000?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/917569796263?text=${encodeURIComponent(msg)}`, '_blank');
         cart = [];
         saveCart();
         updateCartBadge();
@@ -381,7 +381,7 @@ function setupPrescriptionForm() {
         if (val("rx-notes")) msg += `*Notes:* ${val("rx-notes")}\n`;
         msg += `\n*Prescription attached:* [Ref: ${uploadedFile.name}]\n_Note: Please attach your prescription image in the WhatsApp chat immediately after opening._`;
 
-        window.open(`https://wa.me/919000000000?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/917569796263?text=${encodeURIComponent(msg)}`, '_blank');
         e.target.reset();
         uploadedFile = null;
         preview.style.display = "none";

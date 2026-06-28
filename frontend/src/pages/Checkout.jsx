@@ -143,7 +143,7 @@ const Checkout = () => {
     }
     message += `_Please pack my medicines. Thank you!_`;
 
-    const waUrl = `https://wa.me/919000000000?text=${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/917569796263?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
   };
 

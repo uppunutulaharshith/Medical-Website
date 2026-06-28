@@ -61,7 +61,7 @@ const MyOrders = () => {
     message += `*Status:* ${order.status}\n\n`;
     message += `_Hello, I want to inquire about the status of my order._`;
 
-    const waUrl = `https://wa.me/919000000000?text=${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/917569796263?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
   };
 

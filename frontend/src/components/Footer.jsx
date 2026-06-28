@@ -78,6 +78,7 @@ const Footer = () => {
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Sitemap</a>
+          <a href="https://github.com/uppunutulaharshith/Medical-Website" target="_blank" rel="noopener noreferrer">GitHub Project</a>
         </div>
       </div>
     </footer>
